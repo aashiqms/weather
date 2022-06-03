@@ -1,1 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~ngx-toastr/toastr';
+
+:root {
+  --bg-primary: #f0f5ff;
+  --white: #ffffff!important
+}
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+.ml-auto {
+  margin-left: auto!important;
+}
+.mr-50 {
+  margin-right: 50px!important;
+}
+.ml-50 {
+  margin-left: 50px!important;
+}
+
+.pointer {
+  cursor: pointer!important;
+}
+.color-white {
+  color: var(--white)!important;
+}
+
+.outside-container {
+  background-color: var(--bg-primary)!important;
+  min-height: 100vh;
+}
+.weather-card {
+  background-color: #73a1ff;
+  background-position: center;
+  background-size: cover;
+  color: #ffffff;
+  width: 306px;
+  height: 290px;
+  font-family: 'Lato', sans-serif;
+  &.rain {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
+  url(assets/img/rainy.jpg);
+  }
+  &.clear {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
+  url(assets/img/clear.jpg);
+  }
+  &.clouds {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
+  url(assets/img/clouds.jpg);
+  }
+  &.atmosphere {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
+  url(assets/img/atmosphere.jpg);
+  }
+  &.snow {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
+  url(assets/img/snow.jpg);
+  }
+  &.drizzle {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
+  url(assets/img/drizzle.jpg);
+  }
+  &.thunderstorm {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.12)),
+  url(assets/img/thunderstrom.jpg);
+  }
+  &__enter-city {
+    input {
+      background-color: #fff;
+    }
+    button {
+      background-color: #fff!important;
+      color: #73a1ff!important;
+    }
+    .smile {
+      font-size: 20px;
+    }
+  }
+  i {
+    font-size: 100px;
+    color: #fff979;
+  }
+ .header {
+  h4 {
+    font-weight: 300;
+    letter-spacing: 5px;
+    font-size: 14px;
+    // font-weight: 100;
+    letter-spacing: 3px;
+    padding-top: 5px;
+    color: var(--white);
+    display: inline-block;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+  }
+ }
+}
+
+.color-primary {
+  color: #73a1ff!important;
+}

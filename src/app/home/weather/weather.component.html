@@ -1,0 +1,44 @@
+<div class="container-fluid primary-bg">
+  <div class="row justify-content-center">
+    <h3 class="color-white text-center mt-3 mb-3 color-primary">Weather Application</h3>
+    <ng-container *ngFor="let panel of weatherPanels; let i = index">
+      <div class="col-lg-3 col-md-6 col-xs-12 mx-3 my-3">
+        <form [formGroup]="weatherForm" (ngSubmit)="onSubmit($event, i)">
+          <div [ngClass]="panel.weather.main ? panel.weather.main : ''" class="weather-card shadow rounded">
+            <div class="weather-card__enter-city px-3 py-3">
+              <div class="header"><h4 class="color-white">Weather Panel {{i + 1}}</h4></div>
+              <hr class="mt-1"/>
+              <ng-container *ngIf="panel.value !== null">
+                <div  *ngIf="!!panel.weather.main && i !== changeIndex" class="text-center">
+                  <button (click)="changeCity(i)" class="btn btn-primary text-center">
+                    Edit
+                  </button>
+                </div>
+                <div  *ngIf="!panel.weather.main || i === changeIndex" class="input-group mb-3">
+                  <input  formControlName="cityName" type="text" class="form-control" [placeholder]="i === changeIndex ? 'Edit Current Location': 'Search for a city'" aria-label="Recipient's username" aria-describedby="button-addon2">
+                  <button (click)="onSubmit($event, i)" class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+                </div>
+              </ng-container>
+              <ng-container>
+
+                <div class="smile text-center mt-3 mb-3">
+                  <div *ngIf="panel.value === null" (click)="enterCity(i)" class="mb-3"><i class="fas fa-smile"></i></div>
+                  <div class="weather-info">
+                    <h4 class="color-white">{{panel.value}}</h4>
+                    <h4 class="color-white">{{panel.weather.main}}</h4>
+                    <h4 class="color-white" *ngIf="panel.weather.temp">{{panel.weather.temp}} Celsius</h4>
+                  </div>
+                  <button  *ngIf="panel.value === null" (click)="enterCity(i)" class="btn btn-primary">Click Here to Set City</button>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </form>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+
+<!-- <i class='fas fa-sun text-center'></i> -->
