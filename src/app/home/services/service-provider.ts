@@ -7,7 +7,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class ServiceProvider {
 
-  apiKey: string = "a386a70ed53cfbd84c0e1125d08aed28";
+  apiKey: string = "f56bbc6c339960ba10490e3ae03493c8";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -20,10 +20,8 @@ export class ServiceProvider {
   errorHandler(error: any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
-      // Get client-side error
       errorMessage = error.error.message;
     } else {
-      // Get server-side error
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     console.log(errorMessage);
@@ -31,7 +29,7 @@ export class ServiceProvider {
  }
 
   getWeatherForCity(cityName: any): Observable<any> {
-    let serviceUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${'4d8fb5b93d4af21d66a2948710284366'}&units=metric`;
+    let serviceUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${this.apiKey}&units=metric`;
     return this.httpClient.get<any>(serviceUrl)
     .pipe(
       catchError(this.errorHandler)

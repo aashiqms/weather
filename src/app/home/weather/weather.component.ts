@@ -65,7 +65,11 @@ export class WeatherComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.weatherPanels = JSON.parse(localStorage.getItem("weatherPanels") || '{}');
+    let localData = JSON.parse(localStorage.getItem("weatherPanels") || '[]')
+    debugger
+    if(!!localData && localData.length() > 0) {
+      this.weatherPanels = localData;
+    }
 
   }
 
