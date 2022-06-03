@@ -70,7 +70,10 @@ export class WeatherComponent implements OnInit {
     if(!!localData && localData !== null) {
       this.weatherPanels = localData;
     }
-
+    let localCityData = JSON.parse(localStorage.getItem("cityIdArray") || '')
+    if(!!localCityData && localCityData !== null) {
+      this.cityIdArray = localCityData;
+    }
   }
 
   loadData() {
@@ -120,7 +123,11 @@ export class WeatherComponent implements OnInit {
         }
       )
       localStorage.removeItem("weatherPanels");
+      localStorage.removeItem("cityIdArray");
+
       localStorage.setItem("weatherPanels", JSON.stringify(this.weatherPanels));
+      localStorage.setItem("cityIdArray", JSON.stringify(this.cityIdArray));
+
       },
       error => {
 
