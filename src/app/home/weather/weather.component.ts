@@ -66,7 +66,7 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {
     this.weatherPanels = JSON.parse(localStorage.getItem("weatherPanels") || '{}');
-    debugger
+
   }
 
   loadData() {
@@ -119,7 +119,7 @@ export class WeatherComponent implements OnInit {
       localStorage.setItem("weatherPanels", JSON.stringify(this.weatherPanels));
       },
       error => {
-        debugger
+
         this.toastr.error('No Weather Data Found', error?.statusText);
       });
       this.city?.setValue('')
@@ -154,7 +154,7 @@ export class WeatherComponent implements OnInit {
 
 
   enterCity(index: number) {
-    debugger
+
    this.weatherPanels.map(
       (obj) => {
         if(obj.id === index) {
@@ -166,21 +166,10 @@ export class WeatherComponent implements OnInit {
       }
     )
   }
-  // inputChange(index: any) {
-  //   this.weatherPanels.map(
-  //     (obj) => {
-  //       if(obj.id === index) {
-  //         obj.value = this.city?.value;
-  //         return obj
-  //       } else {
-  //         return obj
-  //       }
-  //     }
-  //   )
-  // }
+
   onSubmit(event: any, index: any) {
     let cityValue = this.city?.value;
-    debugger
+
     if(!!cityValue) {
       this.cityName = cityValue;
 

@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <h3 class="color-white text-center mt-3 mb-3 color-primary">Weather Application</h3>
     <ng-container *ngFor="let panel of weatherPanels; let i = index">
-      <div class="col-lg-3 col-md-6 col-xs-12 mx-3 my-3">
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 weather-column">
         <form [formGroup]="weatherForm" (ngSubmit)="onSubmit($event, i)">
           <div [ngClass]="panel.weather.main ? panel.weather.main : ''" class="weather-card shadow rounded">
             <div class="weather-card__enter-city px-3 py-3">
