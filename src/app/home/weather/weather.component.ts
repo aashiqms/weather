@@ -77,7 +77,7 @@ export class WeatherComponent implements OnInit {
   }
 
   loadData() {
-    this.groupIds = this.cityIdArray.forEach(
+    this.cityIdArray.forEach(
       (x) => {
         this.cityName = this.weatherPanels[x].value
         this.getCityWeatherInfo(x)
